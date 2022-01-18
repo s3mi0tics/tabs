@@ -1,23 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {useState} from 'react';
+import Tabs from './components/Tabs';
+import DisplayTabs from './components/DisplayTabs';
 
 function App() {
+  
+  const [message, setMessage] = useState("");
+  
+  
+  // const tabs = [
+  //   {label:'tab1', content: "this is tab1"},
+  //   {label:'tab2', content: "this is tab2"},
+  //   {label:'tab3', content: "this is tab3"},
+  // ] 
+  
+const passTheContent = (msg) =>{  
+    return setMessage(msg)
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Tabs passTheContent={passTheContent}/>
+      <DisplayTabs message={message}/>
     </div>
   );
 }
